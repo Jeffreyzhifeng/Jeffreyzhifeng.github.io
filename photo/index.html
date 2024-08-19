@@ -6,15 +6,21 @@
   <meta name="keywords" content="">
   <meta name="description" content="Photos | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="&#x2F;* 自定义样式 *&#x2F; .gallery {   display: flex;   flex-wrap: wrap;   gap: 10px; }  .gallery img {   width: 100%;   max-width: 300px;   border-radius: 8px;   transition: transform 0.3s ease; }  .gallery img:">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://example.com/about/index.html">
+<meta property="og:title" content="Photos">
+<meta property="og:url" content="http://example.com/photo/index.html">
 <meta property="og:site_name" content="zhifeng_blog">
+<meta property="og:description" content="&#x2F;* 自定义样式 *&#x2F; .gallery {   display: flex;   flex-wrap: wrap;   gap: 10px; }  .gallery img {   width: 100%;   max-width: 300px;   border-radius: 8px;   transition: transform 0.3s ease; }  .gallery img:">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/path/to/thumbnail/image1.jpg">
+<meta property="og:image" content="http://example.com/path/to/thumbnail/image2.jpg">
+<meta property="og:image" content="http://example.com/path/to/thumbnail/image3.jpg">
 <meta property="article:published_time" content="2024-08-19T13:01:23.000Z">
-<meta property="article:modified_time" content="2024-08-19T13:04:27.401Z">
+<meta property="article:modified_time" content="2024-08-19T14:43:05.803Z">
 <meta property="article:author" content="Zhifeng Wang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/path/to/thumbnail/image1.jpg">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -363,8 +369,8 @@
         </a>
         
         
-        <a  class="All Leetcode "
-           href="/2024/08/19/%E2%80%9C2024-8-19_v1%E2%80%9D/"
+        <a  class="All Reading "
+           href="/2024/08/19/%E2%80%9C2024-8-19_v2%E2%80%9D/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="“2024-8月记录”">“2024-8月记录”</span>
@@ -372,8 +378,8 @@
         </a>
         
         
-        <a  class="All Reading "
-           href="/2024/08/19/%E2%80%9C2024-8-19_v2%E2%80%9D/"
+        <a  class="All Leetcode "
+           href="/2024/08/19/%E2%80%9C2024-8-19_v1%E2%80%9D/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="“2024-8月记录”">“2024-8月记录”</span>
@@ -390,15 +396,6 @@
         </a>
         
         
-        <a  class="All 3DV "
-           href="/2024/08/19/%E2%80%9C2024-8-19_v5%E2%80%9D/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="“2024-8月记录”">“2024-8月记录”</span>
-            <span class="post-date" title="2024-08-19 21:20:15">2024/08/19</span>
-        </a>
-        
-        
         <a  class="All CV "
            href="/2024/08/19/%E2%80%9C2024-8-19_v4%E2%80%9D/"
            data-tag=""
@@ -408,8 +405,8 @@
         </a>
         
         
-        <a  class="All Learning "
-           href="/2024/08/19/%E2%80%9C2024-8-19_v8%E2%80%9D/"
+        <a  class="All 3DV "
+           href="/2024/08/19/%E2%80%9C2024-8-19_v5%E2%80%9D/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="“2024-8月记录”">“2024-8月记录”</span>
@@ -419,6 +416,15 @@
         
         <a  class="All Medical "
            href="/2024/08/19/%E2%80%9C2024-8-19_v7%E2%80%9D/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="“2024-8月记录”">“2024-8月记录”</span>
+            <span class="post-date" title="2024-08-19 21:20:15">2024/08/19</span>
+        </a>
+        
+        
+        <a  class="All Learning "
+           href="/2024/08/19/%E2%80%9C2024-8-19_v8%E2%80%9D/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="“2024-8月记录”">“2024-8月记录”</span>
@@ -464,7 +470,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-08-19 22:32:38'>2024-08-19 21:01</time>
+            Created At : <time class="date" title='Updated At: 2024-08-19 22:43:05'>2024-08-19 21:01</time>
         
     </div>
     <div class="article-meta">
@@ -513,7 +519,100 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <hr>
+<style>
+/* 自定义样式 */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item {
+  flex-basis: calc(33.333% - 20px);
+  box-sizing: border-box;
+}
+
+.gallery-caption {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 5px;
+}
+</style>
+
+<div class="gallery">
+  <div class="gallery-item">
+    <a href="./image1.jpg" data-pswp-width="1200" data-pswp-height="800">
+      <img src="/path/to/thumbnail/image1.jpg" alt="Image 1">
+    </a>
+    <div class="gallery-caption">Image 1 Caption</div>
+  </div>
+
+  <div class="gallery-item">
+    <a href="./image2.jpg" data-pswp-width="1200" data-pswp-height="800">
+      <img src="/path/to/thumbnail/image2.jpg" alt="Image 2">
+    </a>
+    <div class="gallery-caption">Image 2 Caption</div>
+  </div>
+
+  <div class="gallery-item">
+    <a href="./image3.jpg" data-pswp-width="1200" data-pswp-height="800">
+      <img src="/path/to/thumbnail/image3.jpg" alt="Image 3">
+    </a>
+    <div class="gallery-caption">Image 3 Caption</div>
+  </div>
+
+  <!-- 更多照片可以继续添加 -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+
+<!-- 初始化 PhotoSwipe 插件 -->
+<script>
+  var pswpElement = document.querySelectorAll('.pswp')[0];
+
+  var items = [
+    {
+      src: '/path/to/fullsize/image1.jpg',
+      w: 1200,
+      h: 800
+    },
+    {
+      src: '/path/to/fullsize/image2.jpg',
+      w: 1200,
+      h: 800
+    },
+    {
+      src: '/path/to/fullsize/image3.jpg',
+      w: 1200,
+      h: 800
+    }
+  ];
+
+  var options = {
+    // 选项配置
+  };
+
+  var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+  gallery.init();
+</script>
+
+<hr>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>
     </div>
