@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Photos | zhifeng_blog</title>
+  <title>leetcode_26.删除有序数组中的重复项 | zhifeng_blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Photos | zhifeng_blog">
+  <meta name="description" content="leetcode_26.删除有序数组中的重复项 | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -470,19 +470,27 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-leetcode_26" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Photos</h1>
+        <h1 class="article-title">leetcode_26.删除有序数组中的重复项</h1>
     
     <div class="article-meta">
         
         
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Leetcode">Leetcode</a>
+            
+        </span>
         
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-08-19 23:23:41'>2024-08-19 21:01</time>
+            Created At : <time class="date" title='Updated At: 2024-09-01 11:42:31'>2024-09-01 10:15</time>
         
     </div>
     <div class="article-meta">
@@ -531,129 +539,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <style>
-/* 自定义样式 */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.gallery img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
+        <p>给你一个 <strong>非严格递增排列</strong> 的数组 <code>nums</code> ，请你**<a target="_blank" rel="noopener" href="http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95"> 原地</a>** 删除重复出现的元素，使每个元素 <strong>只出现一次</strong> ，返回删除后数组的新长度。元素的 <strong>相对顺序</strong> 应该保持 <strong>一致</strong> 。然后返回 <code>nums</code> 中唯一元素的个数。</p>
+<p>考虑 <code>nums</code> 的唯一元素的数量为 <code>k</code> ，你需要做以下事情确保你的题解可以被通过：</p>
+<ul>
+<li>更改数组 <code>nums</code> ，使 <code>nums</code> 的前 <code>k</code> 个元素包含唯一元素，并按照它们最初在 <code>nums</code> 中出现的顺序排列。<code>nums</code> 的其余元素与 <code>nums</code> 的大小不重要。</li>
+<li>返回 <code>k</code> 。</li>
+</ul>
+<p><strong>判题标准:</strong></p>
+<p>系统会用下面的代码来测试你的题解:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int[] nums = [...]; // 输入数组</span><br><span class="line">int[] expectedNums = [...]; // 长度正确的期望答案</span><br><span class="line"></span><br><span class="line">int k = removeDuplicates(nums); // 调用</span><br><span class="line"></span><br><span class="line">assert k == expectedNums.length;</span><br><span class="line">for (int i = 0; i &lt; k; i++) &#123;</span><br><span class="line">    assert nums[i] == expectedNums[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-.gallery img:hover {
-  transform: scale(1.05);
-}
+<p>如果所有断言都通过，那么您的题解将被 <strong>通过</strong>。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,1,2]</span><br><span class="line">输出：2, nums = [1,2,_]</span><br><span class="line">解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
 
-.gallery-item {
-  flex-basis: calc(33.333% - 20px);
-  box-sizing: border-box;
-}
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [0,0,1,1,1,2,2,3,3,4]</span><br><span class="line">输出：5, nums = [0,1,2,3,4]</span><br><span class="line">解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
 
-.gallery-caption {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 5px;
-}
-</style>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 3 * 104</code></li>
+<li><code>-104 &lt;= nums[i] &lt;= 104</code></li>
+<li><code>nums</code> 已按 <strong>非严格递增</strong> 排列</li>
+</ul>
+<hr>
+<p>面试中遇到过这道题?</p>
+<p>1&#x2F;5</p>
+<p>是</p>
+<p>否</p>
+<p>解题：</p>
+<p>这里首先要明确，如果是两个元素的时候，直接返回2就行，这个容易忘记。另外，++index，这是先赋值再加加。python里面是使用快慢指针的方法，来做。这个值得再看看</p>
+<p>C++解法：时间复杂度o（n）,空间复杂度o（1)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeDuplicates</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.<span class="built_in">size</span>()&lt;<span class="number">2</span>) <span class="keyword">return</span> nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>; i&lt;nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i]!=nums[index])&#123;</span><br><span class="line">                nums[++index]=nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> index<span class="number">+1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<div class="gallery">
-  <div class="gallery-item">
-    <a href="/photo/image/image1.jpg" data-pswp-width="1200" data-pswp-height="800">
-      <img src="/photo/image/image1.jpg" alt="Image 1">
-    </a>
-    <div class="gallery-caption">Image 1 Caption</div>
-  </div>
+<p> python解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeDuplicates</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        slow = fast = <span class="number">1</span>  <span class="comment">#慢指针slow指向下一个不同元素要填入的位置</span></span><br><span class="line">                        <span class="comment">#快指针fast指向遍历数组到达的当前位置</span></span><br><span class="line">        <span class="keyword">while</span> fast &lt; <span class="built_in">len</span>(nums): <span class="comment">#快指针遍历到末尾元素程序结束</span></span><br><span class="line">            <span class="keyword">if</span> nums[fast] != nums[fast-<span class="number">1</span>]:</span><br><span class="line">                nums[slow] = nums[fast]</span><br><span class="line">                slow +=<span class="number">1</span></span><br><span class="line">            fast +=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> slow</span><br></pre></td></tr></table></figure>
 
-  <div class="gallery-item">
-    <a href="/photo/image/image2.jpg" data-pswp-width="1200" data-pswp-height="800">
-      <img src="/photo/image/image2.jpg" alt="Image 2">
-    </a>
-    <div class="gallery-caption">Image 2 Caption</div>
-  </div>
-
-  <div class="gallery-item">
-    <a href="/photo/image/image3.jpg" data-pswp-width="1200" data-pswp-height="800">
-      <img src="/photo/image/image3.jpg" alt="Image 3">
-    </a>
-    <div class="gallery-caption">Image 3 Caption</div>
-  </div>
-  <div class="gallery-item">
-    <a href="/photo/image/image4.jpg" data-pswp-width="1200" data-pswp-height="800">
-      <img src="/photo/image/image4.jpg" alt="Image 4">
-    </a>
-    <div class="gallery-caption">Image 4 Caption</div>
-  </div>
-
-  <div class="gallery-item">
-    <a href="/photo/image/image5.jpg" data-pswp-width="1200" data-pswp-height="800">
-      <img src="/photo/image/image5.jpg" alt="Image 5">
-    </a>
-    <div class="gallery-caption">Image 5 Caption</div>
-  </div>
-
-  <div class="gallery-item">
-    <a href="/photo/image/image6.jpg" data-pswp-width="1200" data-pswp-height="800">
-      <img src="/photo/image/image6.jpg" alt="Image 6">
-    </a>
-    <div class="gallery-caption">Image 6 Caption</div>
-  </div>
-
-  <!-- 更多照片可以继续添加 -->
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
-
-<!-- 初始化 PhotoSwipe 插件 -->
-<script>
-  var pswpElement = document.querySelectorAll('.pswp')[0];
-  var items = [
-    {
-      src: '/photo/image/image1.jpg',
-      w: 1200,
-      h: 800
-    },
-    {
-      src: '/photo/image/image2.jpg',
-      w: 1200,
-      h: 800
-    },
-    {
-      src: '/photo/image/image3.jpg',
-      w: 1200,
-      h: 800
-    }
-    {
-      src: '/photo/image/image4.jpg',
-      w: 1200,
-      h: 800
-    }
-    {
-      src: '/photo/image/image5.jpg',
-      w: 1200,
-      h: 800
-    }
-    {
-      src: '/photo/image/image6.jpg',
-      w: 1200,
-      h: 800
-    }
-  ];
-
-  var options = {
-    // 选项配置
-  };
-
-  var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-  gallery.init();
-</script>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>
