@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>“2024-8月记录10” | zhifeng_blog</title>
+  <title>leetcode_80.删除有序数组中的重复项II | zhifeng_blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="“2024-8月记录10” | zhifeng_blog">
+  <meta name="description" content="leetcode_80.删除有序数组中的重复项II | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="&#x2F;* 自定义样式 *&#x2F; .gallery {   display: flex;   flex-wrap: wrap;   gap: 10px; } .gallery img {   width: 100%;   max-width: 300px;   border-radius: 8px;   transition: transform 0.3s ease; }  .gallery img:ho">
 <meta property="og:type" content="website">
@@ -488,9 +488,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-“2024-8-19_v10”" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-leetcode_80" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">“2024-8月记录10”</h1>
+        <h1 class="article-title">leetcode_80.删除有序数组中的重复项II</h1>
     
     <div class="article-meta">
         
@@ -500,7 +500,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Embodied AI">Embodied AI</a>
+            <a  data-rel="Leetcode">Leetcode</a>
             
         </span>
         
@@ -508,7 +508,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-08-19 22:10:32'>2024-08-19 21:20</time>
+            Created At : <time class="date" title='Updated At: 2024-09-01 19:40:16'>2024-09-01 19:14</time>
         
     </div>
     <div class="article-meta">
@@ -557,7 +557,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>this is the first note.</p>
+        <p>给你一个有序数组 <code>nums</code> ，请你**<a target="_blank" rel="noopener" href="http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95"> 原地</a>** 删除重复出现的元素，使得出现次数超过两次的元素<strong>只出现两次</strong> ，返回删除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须在 <strong><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地 </a>修改输入数组</strong> 并在使用 O(1) 额外空间的条件下完成。</p>
+<p><strong>说明：</strong></p>
+<p>为什么返回数值是整数，但输出的答案是数组呢？</p>
+<p>请注意，输入数组是以<strong>「引用」</strong>方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
+<p>你可以想象内部操作如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝</span><br><span class="line">int len = removeDuplicates(nums);</span><br><span class="line"></span><br><span class="line">// 在函数里修改输入数组对于调用者是可见的。</span><br><span class="line">// 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。</span><br><span class="line">for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,1,1,2,2,3]</span><br><span class="line">输出：5, nums = [1,1,2,2,3]</span><br><span class="line">解释：函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3。 不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [0,0,1,1,1,1,2,3,3]</span><br><span class="line">输出：7, nums = [0,0,1,1,2,3,3]</span><br><span class="line">解释：函数应返回新长度 length = 7, 并且原数组的前七个元素被修改为 0, 0, 1, 1, 2, 3, 3。不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 3 * 104</code></li>
+<li><code>-104 &lt;= nums[i] &lt;= 104</code></li>
+<li><code>nums</code> 已按升序排列</li>
+</ul>
+<p>解题：和26.删除有序数组中的重复项I相比，这题区别是可以两个相同的元素。这里就定义两个指针，比较的时候间隔也往前面走一个，就是说nums[i]!&#x3D;nums[index-1]</p>
+<p>C++解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">removeDuplicates</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.<span class="built_in">size</span>()&lt;=<span class="number">2</span>)  <span class="keyword">return</span> nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> index=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">2</span>;i&lt;nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i]!=nums[index<span class="number">-1</span>])&#123;</span><br><span class="line">                nums[++index]=nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> index<span class="number">+1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p> python解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeDuplicates</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(nums)&lt;<span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">len</span>(nums)</span><br><span class="line">        x=<span class="built_in">len</span>(nums)-<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> x!=<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> nums[x]==nums[x-<span class="number">1</span>]==nums[x-<span class="number">2</span>]:</span><br><span class="line">                nums.remove(nums[x])</span><br><span class="line">            <span class="comment">#x是被判断的三个元素中最后一个的下标，每次判断之后不管是否删除都向前移动一位。</span></span><br><span class="line">            x-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(nums)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>
