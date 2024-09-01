@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>about | zhifeng_blog</title>
+  <title>leetcode_88.合并两个有序数组 | zhifeng_blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="about | zhifeng_blog">
+  <meta name="description" content="leetcode_88.合并两个有序数组 | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="&#x2F;* 自定义样式 *&#x2F; .gallery {   display: flex;   flex-wrap: wrap;   gap: 10px; } .gallery img {   width: 100%;   max-width: 300px;   border-radius: 8px;   transition: transform 0.3s ease; }  .gallery img:ho">
 <meta property="og:type" content="website">
@@ -470,19 +470,27 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-leetcode_88" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">about</h1>
+        <h1 class="article-title">leetcode_88.合并两个有序数组</h1>
     
     <div class="article-meta">
         
         
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Leetcode">Leetcode</a>
+            
+        </span>
         
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-08-19 21:04:27'>2024-08-19 21:01</time>
+            Created At : <time class="date" title='Updated At: 2024-09-01 10:56:58'>2024-09-01 12:23</time>
         
     </div>
     <div class="article-meta">
@@ -531,7 +539,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>给你两个按 <strong>非递减顺序</strong> 排列的整数数组 <code>nums1</code> 和 <code>nums2</code>，另有两个整数 <code>m</code> 和 <code>n</code> ，分别表示 <code>nums1</code> 和 <code>nums2</code> 中的元素数目。</p>
+<p>请你 <strong>合并</strong> <code>nums2</code> 到 <code>nums1</code> 中，使合并后的数组同样按 <strong>非递减顺序</strong> 排列。</p>
+<p><strong>注意：</strong>最终，合并后数组不应由函数返回，而是存储在数组 <code>nums1</code> 中。为了应对这种情况，<code>nums1</code> 的初始长度为 <code>m + n</code>，其中前 <code>m</code> 个元素表示应合并的元素，后 <code>n</code> 个元素为 <code>0</code> ，应忽略。<code>nums2</code> 的长度为 <code>n</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3</span><br><span class="line">输出：[1,2,2,3,5,6]</span><br><span class="line">解释：需要合并 [1,2,3] 和 [2,5,6] 。</span><br><span class="line">合并结果是 [1,2,2,3,5,6] ，其中斜体加粗标注的为 nums1 中的元素。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = [1], m = 1, nums2 = [], n = 0</span><br><span class="line">输出：[1]</span><br><span class="line">解释：需要合并 [1] 和 [] 。</span><br><span class="line">合并结果是 [1] 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = [0], m = 0, nums2 = [1], n = 1</span><br><span class="line">输出：[1]</span><br><span class="line">解释：需要合并的数组是 [] 和 [1] 。</span><br><span class="line">合并结果是 [1] 。</span><br><span class="line">注意，因为 m = 0 ，所以 nums1 中没有元素。nums1 中仅存的 0 仅仅是为了确保合并结果可以顺利存放到 nums1 中。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>nums1.length == m + n</code></li>
+<li><code>nums2.length == n</code></li>
+<li><code>0 &lt;= m, n &lt;= 200</code></li>
+<li><code>1 &lt;= m + n &lt;= 200</code></li>
+<li><code>-109 &lt;= nums1[i], nums2[j] &lt;= 109</code></li>
+</ul>
+<p><strong>进阶：</strong>你可以设计实现一个时间复杂度为 <code>O(m + n)</code> 的算法解决此问题吗？</p>
+<p>解题：</p>
+<p>这实际是一个归并排序的问题，只不过要把数组最后都保存到第一个数组里面。所有从每个数组的后面遍历就可以了。注意，这里有个要注意，要考虑第一个nums1遍历结束了，nums2还没结束时候，要把nums2全部放到第一个的前面</p>
+<p>C++解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums1, <span class="type">int</span> m, vector&lt;<span class="type">int</span>&gt;&amp; nums2, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> index = m+n<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> a=m<span class="number">-1</span>,b=n<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span> (a&gt;=<span class="number">0</span> &amp;&amp; b&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums1[a]&gt;=nums2[b])&#123;</span><br><span class="line">                nums1[index--]=nums1[a--];&#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                nums1[index--]=nums2[b--];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (b&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            nums1[index--]=nums2[b--];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p> python解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">merge</span>(<span class="params">self, nums1: <span class="built_in">list</span>[<span class="built_in">int</span>], m: <span class="built_in">int</span>, nums2: <span class="built_in">list</span>[<span class="built_in">int</span>], n: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Do not return anything, modify nums1 in-place instead.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 初始化指针指向两个数组的末尾</span></span><br><span class="line">        p1, p2 = m - <span class="number">1</span>, n - <span class="number">1</span></span><br><span class="line">        <span class="comment"># 初始化指针指向nums1的末尾</span></span><br><span class="line">        p = m + n - <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 从后往前遍历两个数组</span></span><br><span class="line">        <span class="keyword">while</span> p1 &gt;= <span class="number">0</span> <span class="keyword">and</span> p2 &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> nums1[p1] &gt; nums2[p2]:</span><br><span class="line">                nums1[p] = nums1[p1]</span><br><span class="line">                p1 -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                nums1[p] = nums2[p2]</span><br><span class="line">                p2 -= <span class="number">1</span></span><br><span class="line">            p -= <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 如果 nums2 中还有剩余元素，继续填充 nums1</span></span><br><span class="line">        <span class="comment"># 如果 nums1 中有剩余元素，无需操作，因为它们已经在正确位置</span></span><br><span class="line">        nums1[:p2 + <span class="number">1</span>] = nums2[:p2 + <span class="number">1</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>
     </div>
