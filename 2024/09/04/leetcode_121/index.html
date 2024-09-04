@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>“2024-8月记录10” | zhifeng_blog</title>
+  <title>leetcode_121.买卖股票的最佳时机 | zhifeng_blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="“2024-8月记录10” | zhifeng_blog">
+  <meta name="description" content="leetcode_121.买卖股票的最佳时机 | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -515,9 +515,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-“2024-8-19_v10”" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-leetcode_121" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">“2024-8月记录10”</h1>
+        <h1 class="article-title">leetcode_121.买卖股票的最佳时机</h1>
     
     <div class="article-meta">
         
@@ -527,7 +527,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Embodied AI">Embodied AI</a>
+            <a  data-rel="Leetcode">Leetcode</a>
             
         </span>
         
@@ -535,7 +535,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-08-19 22:10:32'>2024-08-19 21:20</time>
+            Created At : <time class="date" title='Updated At: 2024-09-04 10:44:36'>2024-09-04 11:33</time>
         
     </div>
     <div class="article-meta">
@@ -584,7 +584,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>this is the first note.</p>
+        <p>给定一个数组 <code>prices</code> ，它的第 <code>i</code> 个元素 <code>prices[i]</code> 表示一支给定股票第 <code>i</code> 天的价格。</p>
+<p>你只能选择 <strong>某一天</strong> 买入这只股票，并选择在 <strong>未来的某一个不同的日子</strong> 卖出该股票。设计一个算法来计算你所能获取的最大利润。</p>
+<p>返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 <code>0</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：[7,1,5,3,6,4]</span><br><span class="line">输出：5</span><br><span class="line">解释：在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。</span><br><span class="line">     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：prices = [7,6,4,3,1]</span><br><span class="line">输出：0</span><br><span class="line">解释：在这种情况下, 没有交易完成, 所以最大利润为 0。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>解题：</p>
+<p>这题很简单！</p>
+<p>C++解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> minPrice = INT_MAX;  <span class="comment">// 初始设置为一个很大的值</span></span><br><span class="line">        <span class="type">int</span> maxProfit = <span class="number">0</span>;  <span class="comment">// 初始利润为0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; prices.<span class="built_in">size</span>(); ++j) &#123;</span><br><span class="line">            <span class="comment">// 如果当前价格比最小价格还小，更新最小价格</span></span><br><span class="line">            <span class="keyword">if</span> (prices[j] &lt; minPrice) &#123;</span><br><span class="line">                minPrice = prices[j];</span><br><span class="line">            &#125; </span><br><span class="line">            <span class="comment">// 否则计算当前价格卖出能得到的利润，并更新最大利润</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (prices[j] - minPrice &gt; maxProfit) &#123;</span><br><span class="line">                maxProfit = prices[j] - minPrice;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p> python解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maxProfit</span>(<span class="params">self, prices: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        minprice = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">        maxprofit = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> price <span class="keyword">in</span> prices:</span><br><span class="line">            minprice = <span class="built_in">min</span>(minprice, price)</span><br><span class="line">            maxprofit = <span class="built_in">max</span>(maxprofit, price - minprice)</span><br><span class="line">        <span class="keyword">return</span> maxprofit</span><br></pre></td></tr></table></figure>
+
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>

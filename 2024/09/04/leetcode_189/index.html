@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>“2024-8月记录10” | zhifeng_blog</title>
+  <title>leetcode_189.轮转数组 | zhifeng_blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="“2024-8月记录10” | zhifeng_blog">
+  <meta name="description" content="leetcode_189.轮转数组 | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -515,9 +515,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-“2024-8-19_v10”" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-leetcode_189" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">“2024-8月记录10”</h1>
+        <h1 class="article-title">leetcode_189.轮转数组</h1>
     
     <div class="article-meta">
         
@@ -527,7 +527,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Embodied AI">Embodied AI</a>
+            <a  data-rel="Leetcode">Leetcode</a>
             
         </span>
         
@@ -535,7 +535,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-08-19 22:10:32'>2024-08-19 21:20</time>
+            Created At : <time class="date" title='Updated At: 2024-09-04 10:06:43'>2024-09-04 11:03</time>
         
     </div>
     <div class="article-meta">
@@ -584,7 +584,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>this is the first note.</p>
+        <p>给定一个整数数组 <code>nums</code>，将数组中的元素向右轮转 <code>k</code> 个位置，其中 <code>k</code> 是非负数。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入: nums = [1,2,3,4,5,6,7], k = 3</span><br><span class="line">输出: [5,6,7,1,2,3,4]</span><br><span class="line">解释:</span><br><span class="line">向右轮转 1 步: [7,1,2,3,4,5,6]</span><br><span class="line">向右轮转 2 步: [6,7,1,2,3,4,5]</span><br><span class="line">向右轮转 3 步: [5,6,7,1,2,3,4]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [-1,-100,3,99], k = 2</span><br><span class="line">输出：[3,99,-1,-100]</span><br><span class="line">解释: </span><br><span class="line">向右轮转 1 步: [99,-1,-100,3]</span><br><span class="line">向右轮转 2 步: [3,99,-1,-100]</span><br></pre></td></tr></table></figure>
+
+
+
+<p>解题：</p>
+<p>对一个大小为n的数组，分成两个部分。前n-k个和后面k个。o(n)，o(1)</p>
+<p>所以，可以先对整个数组翻转；然后，对每个部分的数组内部再进行翻转</p>
+<p>C++解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rotate</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        k%=nums.<span class="built_in">size</span>();   <span class="comment">//k 被 nums 的大小取余，然后再把这个余数赋值给 k。是为了防止k比整个数组都大，那只要看最后一次</span></span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">begin</span>()+k);</span><br><span class="line">        <span class="built_in">reverse</span>(nums.<span class="built_in">begin</span>()+k,nums.<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p> python解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">rotate</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        n = <span class="built_in">len</span>(nums)</span><br><span class="line">        k = k % n</span><br><span class="line">        nums1 = nums[-k:]</span><br><span class="line">        nums2 = nums[:-k]</span><br><span class="line">        nums[:] = nums1 + nums2</span><br></pre></td></tr></table></figure>
+
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>
