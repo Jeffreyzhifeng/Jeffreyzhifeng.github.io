@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>3dv first | zhifeng_blog</title>
+  <title>1-frp+ssh内网穿透搭建方法 | zhifeng_blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="3dv first | zhifeng_blog">
+  <meta name="description" content="1-frp+ssh内网穿透搭建方法 | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -587,9 +587,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-3dv-first" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-others_frp" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">3dv first</h1>
+        <h1 class="article-title">1-frp+ssh内网穿透搭建方法</h1>
     
     <div class="article-meta">
         
@@ -599,7 +599,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="3DV">3DV</a>
+            <a  data-rel="Others">Others</a>
             
         </span>
         
@@ -607,7 +607,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-08-19 22:26:36'>2024-08-19 22:23</time>
+            Created At : <time class="date" title='Updated At: 2024-09-08 22:38:47'>2023-11-12 15:12</time>
         
     </div>
     <div class="article-meta">
@@ -640,7 +640,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%81%9Assh-frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%95%99%E7%A8%8B"><span class="toc-text">使用腾讯云服务器做ssh+frp内网穿透教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%87%86%E5%A4%87%E4%B8%80%E5%8F%B0%E8%85%BE%E8%AE%AF%E4%BA%91%E8%BD%BB%E9%87%8F%E5%8C%96%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">一、准备一台腾讯云轻量化服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87frp"><span class="toc-text">二、准备frp</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E6%9C%AC%E6%9C%BA"><span class="toc-text">2.1 本机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">2.2 远程服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%85%8D%E7%BD%AE%E7%AB%AF%E5%8F%A3"><span class="toc-text">三、配置端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%BC%80%E5%90%AFfrp%E6%9C%8D%E5%8A%A1"><span class="toc-text">四、开启frp服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-text">五、设置开机自启动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5-1%E3%80%81%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">5.1、云服务器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-2%E3%80%81%E8%BF%9C%E7%A8%8B%E7%9A%84%E6%9C%BA%E5%AD%90%EF%BC%88%E6%9C%AC%E6%9C%BA%EF%BC%89"><span class="toc-text">5.2、远程的机子（本机）</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -656,7 +656,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>test111</p>
+        <h1 id="使用腾讯云服务器做ssh-frp内网穿透教程"><a href="#使用腾讯云服务器做ssh-frp内网穿透教程" class="headerlink" title="使用腾讯云服务器做ssh+frp内网穿透教程"></a>使用腾讯云服务器做ssh+frp内网穿透教程</h1><p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42265958/article/details/106008837">https://blog.csdn.net/weixin_42265958/article/details/106008837</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39165617/article/details/121430112">https://blog.csdn.net/qq_39165617/article/details/121430112</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_33909696/article/details/113311947">https://blog.csdn.net/sinat_33909696/article/details/113311947</a></p>
+<h2 id="一、准备一台腾讯云轻量化服务器"><a href="#一、准备一台腾讯云轻量化服务器" class="headerlink" title="一、准备一台腾讯云轻量化服务器"></a>一、准备一台腾讯云轻量化服务器</h2><p>这里下载：<a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/lighthouse/instance/detail?rid=4&id=lhins-bqz6n3e6">https://console.cloud.tencent.com/lighthouse/instance/detail?rid=4&amp;id=lhins-bqz6n3e6</a></p>
+<h3 id="二、准备frp"><a href="#二、准备frp" class="headerlink" title="二、准备frp"></a>二、准备frp</h3><p>进入github，下载适合的frp:<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a>  (如：<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases/download/v0.15.1/frp_0.15.1_linux_amd64.tar.gz">https://github.com/fatedier/frp/releases/download/v0.15.1/frp_0.15.1_linux_amd64.tar.gz</a>)</p>
+<h4 id="2-1-本机"><a href="#2-1-本机" class="headerlink" title="2.1 本机"></a>2.1 本机</h4><p>cd &#x2F;home&#x2F;zhifeng&#x2F;software&#x2F;frp_0.15.1_linux_amd64<br>.&#x2F;frpc -c .&#x2F;frpc.ini</p>
+<h4 id="2-2-远程服务器"><a href="#2-2-远程服务器" class="headerlink" title="2.2 远程服务器"></a>2.2 远程服务器</h4><p>登录到腾讯云服务器，解压。</p>
+<p>frps 是服务器对应的执行文件，frps.ini 是服务器配置文件。</p>
+<p>修改 frps 配置文件： <code>vim frps.ini</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7001</span><br></pre></td></tr></table></figure>
+
+<p>这个 <code>bind_port</code> 就是 frps 的监听端口，可以修改为你需要制定的端口，在云服务器中，我们一般不会使用默认端口，因为这可能会导致出现病毒攻击。</p>
+<p>腾讯云设置：找到防火墙管理规则，开放暴露端口。</p>
+<p><strong>注意</strong></p>
+<p>如果你要通过 frp 进行 ssh 访问，还要开启一个 ssh 访问端口，也就是要暴露两个端口，一个 <code>7001</code> 端口，一个 <code>7001</code> 端口，其中 <code>8001</code> 端口用于提供 ssh 服务。（也就是防火墙开两个端口，一个访问一个监听）</p>
+<p>总结，修改配置文件，开放两个端口。</p>
+<p>如果执行报错，可以执行 <code>chmod 777 frps</code> 增加权限。</p>
+<h4 id="三、配置端口"><a href="#三、配置端口" class="headerlink" title="三、配置端口"></a>三、配置端口</h4><p>本地的机子配置：</p>
+<p>注：frpc 是客户端对应的执行文件，frpc.ini 是客户端配置文件。</p>
+<p><strong>执行之前相同的下载解压 cd 命令</strong></p>
+<p>修改客户端配置： <code>vim frpc.ini</code> ，[ssh] 设置了 ssh 端口， <code>remote_port</code> 指的是你的服务器应该用 <code>33301</code> 端口来提供 ssh 服务，因为我们之前开放了服务器的 33301 端口。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 你的服务器公网ip</span><br><span class="line">server_port = 8001 </span><br><span class="line"></span><br><span class="line">[ssh]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 7001</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、开启frp服务"><a href="#四、开启frp服务" class="headerlink" title="四、开启frp服务"></a>四、开启frp服务</h4><p>本地和服务器进入frp目录下。执行下面命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frps -c frps.ini</span><br></pre></td></tr></table></figure>
+
+<h4 id="五、设置开机自启动"><a href="#五、设置开机自启动" class="headerlink" title="五、设置开机自启动"></a>五、设置开机自启动</h4><h5 id="5-1、云服务器"><a href="#5-1、云服务器" class="headerlink" title="5.1、云服务器"></a>5.1、云服务器</h5><p>方法一：设置后台挂载<br>nohup .&#x2F;frps -c frps.ini &amp;</p>
+<p>方法二：云服务器：<br>systemctl start frps<br>systemctl enable frps<br>查看日志<br>systemctl status frps</p>
+<h5 id="5-2、远程的机子（本机）"><a href="#5-2、远程的机子（本机）" class="headerlink" title="5.2、远程的机子（本机）"></a>5.2、远程的机子（本机）</h5><p>方法一：</p>
+<p>sudo vim &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;frps.service</p>
+<p>输入下面内容：<br>[Unit]<br>Description&#x3D;Frp Client Service<br>After&#x3D;network.target</p>
+<p>[Service]<br>Type&#x3D;simple<br>User&#x3D;zhifeng<br>Restart&#x3D;on-failure<br>RestartSec&#x3D;5s<br>ExecStart&#x3D;&#x2F;home&#x2F;zhifeng&#x2F;software&#x2F;frp_0.15.1_linux_amd64&#x2F;frpc -c &#x2F;home&#x2F;zhifeng&#x2F;software&#x2F;frp_0.15.1_linux_amd64&#x2F;frpc.ini<br>ExecReload&#x3D;&#x2F;home&#x2F;zhifeng&#x2F;software&#x2F;frp_0.15.1_linux_amd64&#x2F;frpc reload -c &#x2F;home&#x2F;zhifeng&#x2F;software&#x2F;frp_0.15.1_linux_amd64&#x2F;frpc.ini<br>LimitNOFILE&#x3D;1048576</p>
+<p>[Install]<br>WantedBy&#x3D;multi-user.target</p>
+<p>然后开启：（有时候需要重载systemctl daemon-reload）<br>sudo systemctl start frps<br>sudo systemctl enable frps<br>sudo systemctl restart frps<br>sudo systemctl status frps</p>
+<p>其他：</p>
+<p>查看日志<br>systemctl status frps</p>
+<p>查看进程：<br>ps -aux|grep frp| grep -v grep</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>
