@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>“2024-8月记录10” | zhifeng_blog</title>
+  <title>leetcode_55.！跳跃游戏 | zhifeng_blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="“2024-8月记录10” | zhifeng_blog">
+  <meta name="description" content="leetcode_55.！跳跃游戏 | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="&#x2F;* 自定义样式 *&#x2F; .gallery {   display: flex;   flex-wrap: wrap;   gap: 10px; } .gallery img {   width: 100%;   max-width: 300px;   border-radius: 8px;   transition: transform 0.3s ease; }  .gallery img:ho">
 <meta property="og:type" content="website">
@@ -569,9 +569,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-“2024-8-19_v10”" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-leetcode_55" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">“2024-8月记录10”</h1>
+        <h1 class="article-title">leetcode_55.！跳跃游戏</h1>
     
     <div class="article-meta">
         
@@ -581,7 +581,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Embodied AI">Embodied AI</a>
+            <a  data-rel="Leetcode">Leetcode</a>
             
         </span>
         
@@ -589,7 +589,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-08-19 22:10:32'>2024-08-19 21:20</time>
+            Created At : <time class="date" title='Updated At: 2024-09-08 17:46:50'>2024-09-08 10:32</time>
         
     </div>
     <div class="article-meta">
@@ -638,7 +638,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>this is the first note.</p>
+        <p>给你一个非负整数数组 <code>nums</code> ，你最初位于数组的 <strong>第一个下标</strong> 。数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
+<p>判断你是否能够到达最后一个下标，如果可以，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,3,1,1,4]</span><br><span class="line">输出：true</span><br><span class="line">解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,2,1,0,4]</span><br><span class="line">输出：false</span><br><span class="line">解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 104</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 105</code></li>
+</ul>
+<p>解题：</p>
+<p>！！！！！！这道题非常经典贪心算法！！！！！！可以有很多变种！！！</p>
+<p>参考：【程序员大厂面试必会算法 贪心算法中的经典题目 跳跃游戏 (LeetCode 55)】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sk4y1C7cD/?share_source=copy_web&vd_source=f41c7145114ccc65e80569a57d6dd904">https://www.bilibili.com/video/BV1Sk4y1C7cD/?share_source=copy_web&amp;vd_source=f41c7145114ccc65e80569a57d6dd904</a></p>
+<p>C++解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canJump</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt;jump; <span class="comment">//保存每个位置可以达到的最远距离</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            jump.<span class="built_in">push_back</span>(i+nums[i]);<span class="comment">//初始化jumps数组，jump[i]=i+nums[i]</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> index =<span class="number">0</span>; <span class="comment">//存储当前所在的位置</span></span><br><span class="line">        <span class="type">int</span> max_jump=jump[<span class="number">0</span>];<span class="comment">//存储当前可以到达的最远位置，初始化为jump[0]</span></span><br><span class="line">        <span class="keyword">while</span> (index&lt;jump.<span class="built_in">size</span>()&amp;&amp;index&lt;=max_jump)&#123;</span><br><span class="line">            <span class="keyword">if</span>(max_jump&lt;jump[index])&#123;</span><br><span class="line">                max_jump=jump[index];</span><br><span class="line">            &#125;</span><br><span class="line">            index++; <span class="comment">//使用index遍历jump数组</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (index==jump.<span class="built_in">size</span>())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p> python解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>
