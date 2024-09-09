@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>“2024-8月记录” | zhifeng_blog</title>
+  <title>leetcode_274.H指数 | zhifeng_blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="“2024-8月记录” | zhifeng_blog">
+  <meta name="description" content="leetcode_274.H指数 | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="给你一个整数数组 citations ，其中 citations[i] 表示研究者的第 i 篇论文被引用的次数。计算并返回该研究者的 h 指数。 根据维基百科上 h 指数的定义：h 代表“高引用次数” ，一名科研人员的 h 指数 是指他（她）至少发表了 h 篇论文，并且 至少 有 h 篇论文被引用次数大于等于 h 。如果 h 有多种可能的值，**h 指数** 是其中最大的那个。 示例 1： 123">
 <meta property="og:type" content="article">
@@ -607,9 +607,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-“2024-8-19_v3”" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-leetcode_274" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">“2024-8月记录”</h1>
+        <h1 class="article-title">leetcode_274.H指数</h1>
     
     <div class="article-meta">
         
@@ -619,7 +619,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Tools">Tools</a>
+            <a  data-rel="Leetcode">Leetcode</a>
             
         </span>
         
@@ -627,7 +627,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-08-19 21:26:10'>2024-08-19 21:20</time>
+            Created At : <time class="date" title='Updated At: 2024-09-09 21:37:05'>2024-09-09 13:11</time>
         
     </div>
     <div class="article-meta">
@@ -676,7 +676,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>this is the first note.</p>
+        <p>给你一个整数数组 <code>citations</code> ，其中 <code>citations[i]</code> 表示研究者的第 <code>i</code> 篇论文被引用的次数。计算并返回该研究者的 <strong><code>h</code> 指数</strong>。</p>
+<p>根据维基百科上 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/h-index/3991452?fr=aladdin">h 指数的定义</a>：<code>h</code> 代表“高引用次数” ，一名科研人员的 <code>h</code> <strong>指数</strong> 是指他（她）至少发表了 <code>h</code> 篇论文，并且 <strong>至少</strong> 有 <code>h</code> 篇论文被引用次数大于等于 <code>h</code> 。如果 <code>h</code> 有多种可能的值，**<code>h</code> 指数** 是其中最大的那个。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：citations = [3,0,6,1,5]</span><br><span class="line">输出：3 </span><br><span class="line">解释：给定数组表示研究者总共有 5 篇论文，每篇论文相应的被引用了 3, 0, 6, 1, 5 次。</span><br><span class="line">     由于研究者有 3 篇论文每篇 至少 被引用了 3 次，其余两篇论文每篇被引用 不多于 3 次，所以她的 h 指数是 3。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：citations = [1,3,1]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == citations.length</code></li>
+<li><code>1 &lt;= n &lt;= 5000</code></li>
+<li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
+</ul>
+<p>题解：</p>
+<p>以用例为例，size是5，<br>排序过后是0 1 3 5 6，<br>h指数的取值范围一定是0~5，<br>那么：</p>
+<p>如果 最小值 0 都大于等于5，那么h指数一定是最大值5<br>如果 倒数第二小值 1 都大于等于4，那么h指数一定是4<br>如果 倒数第三小值 3 都大于等于3，那么h指数一定是3<br>如果 倒数第四小值 5 都大于等于2，那么h指数一定是2<br>如果 倒数第五小值 6 都大于等于1，那么h指数一定是1<br>都不满足时，h指数一定是最小值。</p>
+<p>C++解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">hIndex</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; citations)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(citations.<span class="built_in">begin</span>(),citations.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=citations.<span class="built_in">size</span>();i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(citations[citations.<span class="built_in">size</span>()-i]&gt;=i)&#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p> python解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hIndex</span>(<span class="params">self, citations: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        citations.sort()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(citations), <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> citations[<span class="built_in">len</span>(citations) - i] &gt;= i:</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>
