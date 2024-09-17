@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>zhifeng_blog</title>
+  <title>leetcode_380.O(1)时间插入、删除和获取随机元素 | zhifeng_blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="zhifeng_blog">
+  <meta name="description" content="leetcode_380.O(1)时间插入、删除和获取随机元素 | zhifeng_blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="&#x2F;* 自定义样式 *&#x2F; .gallery {   display: flex;   flex-wrap: wrap;   gap: 10px; } .gallery img {   width: 100%;   max-width: 300px;   border-radius: 8px;   transition: transform 0.3s ease; }  .gallery img:ho">
 <meta property="og:type" content="website">
@@ -63,7 +63,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -624,18 +624,68 @@
 
     </div>
     <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
+        <div class="semicircle" data-title="Toggle full screen shortcut key s">
             <div class="brackets first"><</div>
             <div class="brackets">&gt;</div>
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-leetcode_380" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91"><span class="toc-text">关于我</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-text">说明</span></a></li></ol></li></ol>
+        <h1 class="article-title">leetcode_380.O(1)时间插入、删除和获取随机元素</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Leetcode">Leetcode</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-09-11 09:54:49'>2024-09-10 12:16</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="Jump to comment area">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
     
 <style>
     .left-col .switch-btn,
@@ -648,27 +698,63 @@
     }
 </style>
 </div>
-            <h1 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h1><p>我是<a target="_blank" rel="noopener" href="https://zfw-cv.github.io/">汪智峰</a>，今年 24 岁，国防科技大学计算机科学专业二年级硕士生。我是国防科技大学<a target="_blank" rel="noopener" href="https://kevinkaixu.net/group.html">(iGRAPE) 实验室</a>的学生，我的导师是<a target="_blank" rel="noopener" href="https://kevinkaixu.net/">徐凯</a>教授和<a target="_blank" rel="noopener" href="https://renjiaoyi.github.io/">易任娇</a>副教授。在此之前，我在江西师范大学获得了学士学位。在与江爱文教授的密切合作下，我创建并负责<a target="_blank" rel="noopener" href="https://motong-ai-studio.github.io/">Motong AI Lab</a>，该工作室从事计算机视觉领域的研究。现在，我的研究兴趣包括计算机视觉和3D视觉。我的期望是让Intelligent Machines真正服务人类生活，促进社会科学技术发展，人类文明进步。</p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><strong>Jefferyzhifeng</strong> 是（汪智峰）的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<!-- ## 博客平台
-这个博客通过 [Hexo](https://hexo.io/) 生成，部署在 [GitHub Pages](https://pages.github.com/)主题 [3-hexo](https://github.com/yelog/hexo-theme-3-hexo) 已经在github上开源 -->
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>实现<code>RandomizedSet</code> 类：</p>
+<ul>
+<li><code>RandomizedSet()</code> 初始化 <code>RandomizedSet</code> 对象</li>
+<li><code>bool insert(int val)</code> 当元素 <code>val</code> 不存在时，向集合中插入该项，并返回 <code>true</code> ；否则，返回 <code>false</code> 。</li>
+<li><code>bool remove(int val)</code> 当元素 <code>val</code> 存在时，从集合中移除该项，并返回 <code>true</code> ；否则，返回 <code>false</code> 。</li>
+<li><code>int getRandom()</code> 随机返回现有集合中的一项（测试用例保证调用此方法时集合中至少存在一个元素）。每个元素应该有 <strong>相同的概率</strong> 被返回。</li>
+</ul>
+<p>你必须实现类的所有函数，并满足每个函数的 <strong>平均</strong> 时间复杂度为 <code>O(1)</code> 。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">[&quot;RandomizedSet&quot;, &quot;insert&quot;, &quot;remove&quot;, &quot;insert&quot;, &quot;getRandom&quot;, &quot;remove&quot;, &quot;insert&quot;, &quot;getRandom&quot;]</span><br><span class="line">[[], [1], [2], [2], [], [1], [2], []]</span><br><span class="line">输出</span><br><span class="line">[null, true, false, true, 2, true, false, 2]</span><br><span class="line"></span><br><span class="line">解释</span><br><span class="line">RandomizedSet randomizedSet = new RandomizedSet();</span><br><span class="line">randomizedSet.insert(1); // 向集合中插入 1 。返回 true 表示 1 被成功地插入。</span><br><span class="line">randomizedSet.remove(2); // 返回 false ，表示集合中不存在 2 。</span><br><span class="line">randomizedSet.insert(2); // 向集合中插入 2 。返回 true 。集合现在包含 [1,2] 。</span><br><span class="line">randomizedSet.getRandom(); // getRandom 应随机返回 1 或 2 。</span><br><span class="line">randomizedSet.remove(1); // 从集合中移除 1 ，返回 true 。集合现在包含 [2] 。</span><br><span class="line">randomizedSet.insert(2); // 2 已在集合中，所以返回 false 。</span><br><span class="line">randomizedSet.getRandom(); // 由于 2 是集合中唯一的数字，getRandom 总是返回 2 。</span><br></pre></td></tr></table></figure>
 
-<!-- `3-hexo` 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a>
+<p>题解：</p>
+<p>为了满足 O(1) 时间复杂度的要求，使用以下两种数据结构的组合是关键：</p>
+<ol>
+<li>**哈希表 (Dictionary&#x2F;Map)**：哈希表能够在 O(1) 时间内检查元素是否存在、插入元素和删除元素。我们用它来存储值及其对应的索引。</li>
+<li>**动态数组 (List)**：数组可以在 O(1) 时间内获取随机元素（通过随机选择数组中的索引）。</li>
+</ol>
+<p>哈希表和数组的组合能够解决两个关键问题：</p>
+<ul>
+<li><strong>插入和删除操作的 O(1) 时间复杂度</strong>：通过哈希表可以快速查找和操作元素。</li>
+<li><strong>随机访问的 O(1) 时间复杂度</strong>：数组通过索引直接访问随机元素。</li>
+</ul>
+<p>插入时：</p>
+<ul>
+<li>检查元素是否在哈希表中，如果不存在，加入数组并在哈希表中记录它的索引。</li>
+</ul>
+<p>删除时：</p>
+<ul>
+<li>为了保证 O(1) 时间复杂度，我们可以先将要删除的元素与数组中的最后一个元素交换，然后删除数组的最后一个元素，这样避免了移除数组中间元素带来的 O(n) 开销。</li>
+</ul>
+<p>随机返回时：</p>
+<ul>
+<li>随机从数组中返回一个元素，因为数组的每个元素都有相同的被选中概率。</li>
+</ul>
+<p>C++解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RandomizedSet</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">RandomizedSet</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Inserts a value to the set. Returns true if the set did not already contain the specified element. */</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (val_to_index.<span class="built_in">find</span>(val) != val_to_index.<span class="built_in">end</span>()) &#123;</span><br><span class="line">            <span class="comment">// 如果 val 已经存在，返回 false</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 插入 val 到 values 向量的末尾，并记录在哈希表中</span></span><br><span class="line">        val_to_index[val] = values.<span class="built_in">size</span>();</span><br><span class="line">        values.<span class="built_in">push_back</span>(val);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Removes a value from the set. Returns true if the set contained the specified element. */</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">remove</span><span class="params">(<span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (val_to_index.<span class="built_in">find</span>(val) == val_to_index.<span class="built_in">end</span>()) &#123;</span><br><span class="line">            <span class="comment">// 如果 val 不存在，返回 false</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 获取要删除的元素的索引</span></span><br><span class="line">        <span class="type">int</span> idx_to_remove = val_to_index[val];</span><br><span class="line">        <span class="comment">// 获取数组的最后一个元素</span></span><br><span class="line">        <span class="type">int</span> last_element = values.<span class="built_in">back</span>();</span><br><span class="line">        <span class="comment">// 将要删除的元素与数组的最后一个元素交换</span></span><br><span class="line">        values[idx_to_remove] = last_element;</span><br><span class="line">        val_to_index[last_element] = idx_to_remove;</span><br><span class="line">        <span class="comment">// 删除最后一个元素</span></span><br><span class="line">        values.<span class="built_in">pop_back</span>();</span><br><span class="line">        <span class="comment">// 从哈希表中删除 val</span></span><br><span class="line">        val_to_index.<span class="built_in">erase</span>(val);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Get a random element from the set. */</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getRandom</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 从 values 数组中随机返回一个元素</span></span><br><span class="line">        <span class="type">int</span> random_index = <span class="built_in">rand</span>() % values.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">return</span> values[random_index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; val_to_index;  <span class="comment">// 哈希表，值到索引的映射</span></span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt; values;                    <span class="comment">// 动态数组，存储元素</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-主要功能：
-- 搜索支持文章标题、标签(#标签)、作者(@作者)
-- pad/手机等移动端适配
-- 页面全局快捷键 <a target="_blank" rel="noopener" href='http://yelog.org/2017/03/24/3-hexo-shortcuts/'>3-hexo快捷键说明</a> -->
+<p> python解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RandomizedSet</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.val_to_index = &#123;&#125;  <span class="comment"># 哈希表，记录每个值的索引</span></span><br><span class="line">        <span class="variable language_">self</span>.values = []        <span class="comment"># 动态数组，存储元素</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, val: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">if</span> val <span class="keyword">in</span> <span class="variable language_">self</span>.val_to_index:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="comment"># 插入元素到数组末尾，并记录到哈希表中</span></span><br><span class="line">        <span class="variable language_">self</span>.val_to_index[val] = <span class="built_in">len</span>(<span class="variable language_">self</span>.values)</span><br><span class="line">        <span class="variable language_">self</span>.values.append(val)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, val: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="keyword">if</span> val <span class="keyword">not</span> <span class="keyword">in</span> <span class="variable language_">self</span>.val_to_index:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="comment"># 获取要删除元素的索引</span></span><br><span class="line">        idx_to_remove = <span class="variable language_">self</span>.val_to_index[val]</span><br><span class="line">        <span class="comment"># 将要删除的元素与数组的最后一个元素交换</span></span><br><span class="line">        last_element = <span class="variable language_">self</span>.values[-<span class="number">1</span>]</span><br><span class="line">        <span class="variable language_">self</span>.values[idx_to_remove] = last_element</span><br><span class="line">        <span class="variable language_">self</span>.val_to_index[last_element] = idx_to_remove</span><br><span class="line">        <span class="comment"># 删除最后一个元素</span></span><br><span class="line">        <span class="variable language_">self</span>.values.pop()</span><br><span class="line">        <span class="keyword">del</span> <span class="variable language_">self</span>.val_to_index[val]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getRandom</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># 随机返回数组中的一个元素</span></span><br><span class="line">        <span class="keyword">return</span> random.choice(<span class="variable language_">self</span>.values)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Your RandomizedSet object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = RandomizedSet()</span></span><br><span class="line"><span class="comment"># param_1 = obj.insert(val)</span></span><br><span class="line"><span class="comment"># param_2 = obj.remove(val)</span></span><br><span class="line"><span class="comment"># param_3 = obj.getRandom()</span></span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zhifengwang686@gmail.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -690,6 +776,13 @@
 </script>
 
 
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -698,11 +791,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
